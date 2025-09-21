@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Bird Pte Ltd - Connecting European Expertise with Global Markets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        :root {
+            --primary-blue: #08599b;
+            --accent-red: #d94334;
+            --elegant-gray: #f0f2f5;
+            --dark-gray: #333333;
+            --text-gray: #6b7280;
+            --light-blue: #e6f0fa;
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%), var(--image-url);
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .industry-card {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .industry-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .industry-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .industry-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 2rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .industry-card:hover .industry-overlay {
+            transform: translateY(0);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-blue);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+                padding: 0 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4">
+        <div class="flex h-20 items-center justify-between">
+
+            <!-- 🔗 লোগো (ইমেজ + নাম) -->
+            <a href="index.html" class="flex items-center gap-3 text-2xl font-bold text-[var(--dark-gray)]">
+                <img src="https://i.postimg.cc/Z5LVncWn/logo-firebird.png" alt="Fire Bird Logo" class="h-10 w-auto">
+                <span>Fire Bird Pte Ltd</span>
+            </a>
+
+            <!-- 🌐 নেভিগেশন মেনু (ডেস্কটপে) -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#about">About</a>
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#services">Services</a>
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#industries">Industries</a>
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#insights">Insights</a>
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#careers">Careers</a>
+                <a class="nav-link text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors" href="#contact">Contact</a>
+            </nav>
+
+            <!-- 📞 CTA Button -->
+            <a href="#contact" class="hidden md:inline-flex min-w-[120px] items-center justify-center rounded-md h-10 px-5 bg-[var(--primary-blue)] text-white text-sm font-bold shadow-md hover:bg-opacity-90 transition-all">
+                Get in Touch
+            </a>
+
+            <!-- 📱 মোবাইল মেনু বাটন -->
+            <button class="md:hidden text-[var(--dark-gray)]" id="mobile-menu-button">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+            
+            <!-- Mobile Menu -->
+           <!--  <div class="hidden py-4 border-t border-gray-200 mt-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#about">About</a>
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#services">Services</a>
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#industries">Industries</a>
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#insights">Insights</a>
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#careers">Careers</a>
+                    <a class="text-sm font-medium text-[var(--dark-gray)] hover:text-[var(--primary-blue)] transition-colors py-2" href="#contact">Contact</a>
+                    <a class="inline-flex min-w-[120px] items-center justify-center rounded-md h-10 px-5 bg-[var(--primary-blue)] text-white text-sm font-bold shadow-md hover:bg-opacity-90 transition-all mt-2" href="#contact">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header> -->
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative flex min-h-[90vh] items-center justify-center text-white hero-gradient bg-cover bg-center" style='--image-url: url("https://img.freepik.com/free-photo/fire-flame-with-sparkle-black-background_84443-7918.jpg?ga=GA1.1.1061218234.1757515610&semt=ais_incoming&w=740&q=80");'>
+            <div class="container mx-auto px-4 z-10">
+                <div class="max-w-3xl hero-content">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                       Connecting European expertise with fast-growing markets
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl max-w-2xl text-gray-200">
+                       Promoting European companies and products in Southeast Asia, the Middle East and beyond. We connect private and public partners to drive real-world projects in management, training, legal and relationship management.
+                    </p>
+                    <div class="mt-8 flex gap-4 hero-buttons">
+                        <a class="flex min-w-[160px] items-center justify-center rounded-md h-12 px-6 bg-[var(--primary-blue)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all" href="#services">
+                            Explore Our Services
+                        </a>
+                        <a class="flex min-w-[160px] items-center justify-center rounded-md h-12 px-6 bg-white/20 text-white text-base font-bold backdrop-blur-sm hover:bg-white/30 transition-all" href="#about">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="bg-[var(--light-blue)] py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="stat-number">15+</div>
+                        <p class="text-[var(--text-gray)] mt-2">Years Experience</p>
+                    </div>
+                    <div>
+                        <div class="stat-number">200+</div>
+                        <p class="text-[var(--text-gray)] mt-2">Clients Served</p>
+                    </div>
+                    <div>
+                        <div class="stat-number">12</div>
+                        <p class="text-[var(--text-gray)] mt-2">Countries</p>
+                    </div>
+                    <div>
+                        <div class="stat-number">98%</div>
+                        <p class="text-[var(--text-gray)] mt-2">Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-[var(--dark-gray)] mb-6">About Fire Bird</h2>
+                        <p class="text-lg text-[var(--text-gray)] mb-6">
+                            Founded in 2008, Fire Bird Pte Ltd has established itself as a premier consulting firm specializing in international business expansion. Our team of experts brings decades of experience in navigating complex global markets.
+                        </p>
+                        <p class="text-lg text-[var(--text-gray)] mb-8">
+                            We understand the unique challenges businesses face when expanding internationally. Our tailored approach ensures that our clients receive strategic guidance that aligns with their specific goals and market conditions.
+                        </p>
+                        <a href="#services" class="inline-flex items-center text-[var(--primary-blue)] font-semibold hover:text-[var(--accent-red)] transition-colors">
+                            Discover our services
+                            <span class="material-symbols-outlined ml-2">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80" alt="Team meeting" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding bg-[var(--elegant-gray)]">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--dark-gray)]">ADVICE FOR PARTICIPANTS
+</h2>
+                    <p class="mt-4 text-lg text-[var(--text-gray)]">
+                        Focus on visual impact and professional credibility. We want our potential clients to immediately think: "This company is serious and compete
+
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">trending_up</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">Market Entry Strategy</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Develop a robust market entry strategy tailored to your specific goals and target markets. We provide actionable insights to ensure a successful launch.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">groups</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">Talent Acquisition & Management</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Attract, recruit, and retain top talent with our specialized services. We help you build high-performing teams that drive growth.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">language</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">Cross-Cultural Communication</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Navigate cultural differences effectively with our training and support. We help you build strong relationships with local partners and clients.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">account_balance</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">Regulatory Compliance</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Navigate complex regulatory environments with confidence. Our experts ensure your business remains compliant across all jurisdictions.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">public</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">International Partnerships</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Forge strategic alliances with key players in your target markets. We facilitate connections that drive mutual growth and success.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm card-hover group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] mb-6 group-hover:bg-[var(--accent-red)]/10 group-hover:text-[var(--accent-red)] transition-colors duration-300">
+                            <span class="material-symbols-outlined text-3xl">analytics</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--dark-gray)] mb-3">Market Analysis</h3>
+                        <p class="text-[var(--text-gray)]">
+                            Gain deep insights into your target markets with our comprehensive research and analysis services. Make data-driven decisions with confidence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Industries Section -->
+        <section id="industries" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--dark-gray)]">Sectors & recent projects
+</h2>
+                    <p class="mt-4 text-lg text-[var(--text-gray)]">
+                        Our expertise spans across various key sectors, enabling us to provide industry-specific insights and tailored strategies.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="industry-card rounded-lg overflow-hidden shadow-lg">
+                        <img alt="Technology" class="w-full h-64 object-cover" src="https://img.freepik.com/premium-photo/solar-panel-with-turbine-sunlight-blue-sky-background-concept-clean-power-energy_34152-1074.jpg?w=740">
+                        <div class="industry-overlay">
+                            <h3 class="text-lg font-bold">Technology</h3>
+                            <p class="text-sm mt-2">Driving innovation and growth in the tech sector across emerging markets.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card rounded-lg overflow-hidden shadow-lg">
+                        <img alt="Healthcare" class="w-full h-64 object-cover" src="https://img.freepik.com/free-photo/futuristic-smart-city-with-5g-global-network-technology_53876-98438.jpg?t=st=1758253602~exp=1758257202~hmac=afd47e00121c22329f3b8543b9bd72c3e687f049e3f69753551b2147e22b926a&w=740">
+                        <div class="industry-overlay">
+                            <h3 class="text-lg font-bold">Healthcare</h3>
+                            <p class="text-sm mt-2">Improving healthcare access and outcomes through strategic partnerships.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card rounded-lg overflow-hidden shadow-lg">
+                        <img alt="Financial Services" class="w-full h-64 object-cover" src="
+                        https://img.freepik.com/premium-photo/man-is-working-computer-with-screen-showing-graphs-charts_1013581-1215.jpg?w=740">
+                        <div class="industry-overlay">
+                            <h3 class="text-lg font-bold">Financial Services</h3>
+                            <p class="text-sm mt-2">Facilitating financial inclusion and expanding market reach for institutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card rounded-lg overflow-hidden shadow-lg">
+                        <img alt="Manufacturing" class="w-full h-64 object-cover" src="https://img.freepik.com/free-photo/career-progression-promotion-achievement-success-concept_53876-120915.jpg?t=st=1758253802~exp=1758257402~hmac=d8399fa9448ea134f54eef67b3d2244999af43a7189827ffae0e7498fd33220a&w=740">
+                        <div class="industry-overlay">
+                            <h3 class="text-lg font-bold">Manufacturing</h3>
+                            <p class="text-sm mt-2">Optimizing operations and expanding market presence for companies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 bg-[var(--light-blue)]">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--dark-gray)]">What Our Clients Say</h2>
+                    <p class="mt-4 text-lg text-[var(--text-gray)]">
+                        Discover why businesses choose Fire Bird for their international expansion needs.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card">
+                        <p class="text-[var(--text-gray)] mb-6">"Fire Bird's expertise in navigating the Southeast Asian market was invaluable to our expansion. Their strategic guidance helped us avoid costly mistakes and accelerate our growth."</p>
+                        <div class="flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold text-[var(--dark-gray)]">Sarah Johnson</h4>
+                                <p class="text-sm text-[var(--text-gray)]">CEO, TechInnovate</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="text-[var(--text-gray)] mb-6">"The cultural training provided by Fire Bird was exceptional. Our team felt prepared and confident when establishing relationships with our new Middle Eastern partners."</p>
+                        <div class="flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold text-[var(--dark-gray)]">Michael Chen</h4>
+                                <p class="text-sm text-[var(--text-gray)]">Director, Global Operations</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="text-[var(--text-gray)] mb-6">"Fire Bird's market analysis gave us the insights we needed to make informed decisions about our manufacturing expansion. Their local knowledge is unparalleled."</p>
+                        <div class="flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold text-[var(--dark-gray)]">Elena Rodriguez</h4>
+                                <p class="text-sm text-[var(--text-gray)]">VP of Operations, ManufacturePro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-[var(--primary-blue)] text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Expand Your Business Globally?</h2>
+                <p class="text-xl max-w-2xl mx-auto mb-10">
+                    Contact us today to discuss how Fire Bird can help your business succeed in new markets.
+                </p>
+                <a href="#contact" class="inline-flex min-w-[200px] items-center justify-center rounded-md h-12 px-8 bg-white text-[var(--primary-blue)] text-base font-bold shadow-lg hover:bg-gray-100 transition-all">
+                    Get Started Today
+                </a>
+            </div>
+        </section>
+    </main>
+
+    
+                    <p class="text-gray-400 mb-6">
+                        Connecting European expertise with global markets through strategic consulting and innovative solutions.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 
